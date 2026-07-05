@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sorry baby :<</title>
+    <!-- Premium Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Great+Vibes&family=Noto+Serif:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- Dark, Antique-Luxury Aesthetic Reset --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: radial-gradient(circle at 50% 50%, #3a2214 0%, #2a180e 70%, #1a0f08 100%);
+            font-family: 'Noto Serif', serif;
+            overflow: hidden;
+            position: relative;
+            padding: 20px;
+        }
+
+        /* --- Ambient Floating Jewelry Elements --- */
+        .bg-artifacts {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            top: 0;
+            left: 0;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .artifact {
+            position: absolute;
+            display: block;
+            background-size: contain;
+            background-repeat: no-repeat;
+            opacity: 0;
+            animation: floatArtifact 20s ease-in-out infinite;
+        }
+
+        .artifact-ring {
+            width: clamp(35px, 8vw, 55px); 
+            height: clamp(35px, 8vw, 55px);
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="65" r="30" stroke="%23D4AF37" stroke-width="6" fill="none"/><rect x="40" y="20" width="20" height="20" fill="%23D4AF37"/><rect x="45" y="25" width="10" height="10" fill="white"/></svg>');
+            top: 15%; left: 10%;
+        }
+        .artifact-locket {
+            width: clamp(40px, 9vw, 60px); 
+            height: clamp(40px, 9vw, 60px);
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M50 80 C20 60, 20 40, 50 20 C80 40, 80 60, 50 80 Z" fill="%23D4AF37"/><circle cx="50" cy="50" r="10" fill="%23A52A2A"/></svg>');
+            top: 65%; right: 10%;
+            animation-delay: 5s;
+        }
+        .artifact-heart {
+            width: clamp(30px, 7vw, 45px); 
+            height: clamp(30px, 7vw, 45px);
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M50 90 C10 60, 10 30, 50 30 C90 30, 90 60, 50 90 Z" fill="%23D4AF37"/><circle cx="50" cy="50" r="8" fill="%23800000"/></svg>');
+            bottom: 15%; left: 15%;
+            animation-delay: 10s;
+        }
+
+        @keyframes floatArtifact {
+            0% { transform: translateY(0) rotate(0deg); opacity: 0; }
+            15% { opacity: 0.6; }
+            50% { transform: translateY(-40px) rotate(15deg); opacity: 0.5; }
+            85% { opacity: 0.6; }
+            100% { transform: translateY(-80px) rotate(-10deg); opacity: 0; }
+        }
+
+        /* --- Fluid Scaling Container --- */
+        .clutch-wrapper {
+            position: relative;
+            z-index: 10;
+            width: 100%;
+            max-width: 480px;
+            aspect-ratio: 1.7 / 1;
+            margin-top: 40px;
+            perspective: 1500px;
+            transition: transform 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        /* --- Leather Clutch --- */
+        .clutch-body {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            background-color: #f3e5dc;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="4" height="4" viewBox="0 0 4 4"><circle cx="1" cy="1" r="0.8" fill="%23e8d4c5" fill-opacity="0.6"/></svg>');
+            border-radius: 14px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.55), inset 0 -3px 8px rgba(0,0,0,0.1);
+            cursor: pointer;
+            transform-style: preserve-3d;
+        }
+
+        /* Flap */
+        .clutch-body::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%;
+            height: 62%;
+            background-color: inherit;
+            background-image: inherit;
+            border-bottom-left-radius: 40px 80px;
+            border-bottom-right-radius: 40px 80px;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.25);
+            transform-origin: top;
+            transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1) 0.2s, z-index 0.1s step-end 0.3s;
+            z-index: 5;
+            backface-visibility: hidden;
+        }
+
+        /* Front Clasp */
+        .clasp {
+            position: absolute;
+            bottom: 32%;
+            left: 50%;
+            width: clamp(38px, 9vw, 46px);
+            height: clamp(38px, 9vw, 46px);
+            background: linear-gradient(135deg, #eedcc4, #d4af37);
+            border-radius: 50%;
+            z-index: 6;
+            transform: translate(-50%, 50%);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.35), inset -2px -2px 4px rgba(0,0,0,0.2);
+            transition: all 0.4s ease;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: clamp(1rem, 2.5vw, 1.25rem);
+        }
+
+        /* --- Parchment Letter Inside --- */
+        .letter {
+            position: absolute;
+            top: 8%;
+            left: 4%;
+            width: 92%;
+            height: 84%;
+            background-color: #f4f1ea;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><filter id="noise"><feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="2" stitchTiles="stitch"/></filter><rect width="100" height="100" filter="url(%23noise)" opacity="0.04"/></svg>');
+            border-radius: 10px;
+            padding: clamp(14px, 4vw, 24px);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            transition: transform 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) 0.1s, 
+                        height 0.7s cubic-bezier(0.34, 1.3, 0.64, 1) 0.4s,
+                        z-index 0s step-end 0.3s;
+            z-index: 3;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid rgba(139, 69, 19, 0.15);
+            transform: scaleY(0.95) translateZ(-5px);
+            cursor: default; /* Prevents hand pointer when hovering text */
+        }
+
+        .letter h1 {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(1.1rem, 4vw, 1.5rem);
+            color: #5c4033;
+            text-align: center;
+            margin-bottom: 10px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border-bottom: 1px solid rgba(139, 69, 19, 0.15);
+            padding-bottom: 8px;
+            flex-shrink: 0;
+        }
+
+        .letter-content {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            overflow-y: auto;
+            padding-right: 4px; /* Space for scrollbar if needed */
+            -webkit-overflow-scrolling: touch; /* Butter smooth mobile momentum scroll */
+        }
+
+        /* Subtle elegant scrollbar design */
+        .letter-content::-webkit-scrollbar {
+            width: 4px;
+        }
+        .letter-content::-webkit-scrollbar-thumb {
+            background: rgba(92, 64, 51, 0.2);
+            border-radius: 10px;
+        }
+
+        .letter p {
+            font-size: clamp(0.85rem, 2.8vw, 1rem);
+            line-height: 1.6;
+            color: #3e2723;
+            text-align: justify;
+            opacity: 0;
+            transition: opacity 0.5s ease 0.6s;
+            font-style: italic;
+        }
+
+        .letter p strong {
+            font-family: 'Noto Serif', serif;
+            font-weight: 600;
+            font-style: normal;
+            color: #8b0000;
+        }
+
+        .letter .signature {
+            font-family: 'Great Vibes', cursive;
+            text-align: right;
+            color: #8b0000;
+            margin-top: auto;
+            padding-top: 12px;
+            font-size: clamp(1.6rem, 5vw, 2.2rem);
+            opacity: 0;
+            transition: opacity 0.5s ease 0.8s;
+            border-top: 1px solid rgba(139, 69, 19, 0.15);
+            flex-shrink: 0;
+        }
+
+        /* --- Device Adaptive Interactive States --- */
+        .clutch-wrapper.open {
+            transform: translateY(22%);
+        }
+
+        .clutch-wrapper.open .clutch-body::before {
+            transform: rotateX(-165deg);
+            z-index: 2;
+        }
+
+        .clutch-wrapper.open .letter {
+            transform: translateY(-62%) scaleY(1) translateZ(5px);
+            z-index: 5;
+            height: 160%;
+            box-shadow: 0 20px 45px rgba(0,0,0,0.35);
+        }
+
+        .clutch-wrapper.open .letter p,
+        .clutch-wrapper.open .signature {
+            opacity: 1;
+        }
+
+        .clutch-wrapper.open .clasp {
+            opacity: 0;
+            pointer-events: none;
+            transform: translate(-50%, 50%) scale(0);
+        }
+
+        /* --- Exact Breakpoint Handling --- */
+        @media (max-width: 480px) {
+            .clutch-wrapper {
+                max-width: 88vw;
+                aspect-ratio: 1.55 / 1;
+            }
+            .clutch-wrapper.open {
+                transform: translateY(26%);
+            }
+            .clutch-wrapper.open .letter {
+                transform: translateY(-56%);
+                height: 146%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Elegant Floating Space Layers -->
+    <div class="bg-artifacts">
+        <div class="artifact artifact-ring"></div>
+        <div class="artifact artifact-locket"></div>
+        <div class="artifact artifact-heart"></div>
+    </div>
+
+    <!-- Protected Main Interactive Node -->
+    <div class="clutch-wrapper" id="clutchWrapper">
+        <div class="clutch-body" id="clutchInteractive">
+            <div class="clasp">❤️</div>
+            
+            <div class="letter" id="letterContainer">
+                <h1>My Honey Bear</h1>
+                
+                <div class="letter-content" id="letterContent">
+                    <p>
+                       love, me really sorry for what i said earlier. ayoko lang naman na napapagalitan ka because of me. sorry talaga baby. alam kong mali na ganon agad ang naisip ko. pero promise ko sayo na ipaglalaban kita. i can promise you that kasi sigurado akong kaya kong gawin yun.
+                    </p>
+                    <p>
+                        hindi ko hahayaan na mawala ka sakin baby, ayokong sayangin ang pagkakataon na akin ka. <strong> i wont let anyone ruin what we have. </strong> mamahalin kita sa paraan na gusto mo hindi lang sa paraang alam ko.  will be patient, and i will prove to everyone especially your parents how much you mean to me. palagi mong tatandaan na mahal na mahal kita.
+                    </p>
+                    <div class="signature">Forever Yours, Gly</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const wrapper = document.getElementById('clutchWrapper');
+        const interactiveBody = document.getElementById('clutchInteractive');
+        const letter = document.getElementById('letterContainer');
+
+        interactiveBody.addEventListener('click', function(e) {
+            // If the user clicks inside the parchment text layout area, do not close the clutch
+            if (letter.contains(e.target)) {
+                return;
+            }
+            
+            e.preventDefault(); 
+            e.stopPropagation();
+            wrapper.classList.toggle('open');
+        });
+
+        // Stops parent structural drag behaviors from overriding inner layout scrolling on mobile
+        document.getElementById('letterContent').addEventListener('touchmove', function(e) {
+            e.stopPropagation();
+        }, { passive: true });
+    </script>
+</body>
+</html>
